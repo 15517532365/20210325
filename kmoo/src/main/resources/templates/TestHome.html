@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>myHome</title>
+    <script src="/static/js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<div>this is my home!</div>
+<div><label>用户id</label><input id="userId"></div>
+<div><label>用户名</label><input id="userName"></div>
+<div><label>用户姓名</label><input id="userRelName"></div>
+<div><label>用户性别</label><input id="userSex"></div>
+<div><label>用户电话</label><input id="userPhone"></div>
+<div><label>用户邮箱</label><input id="userMail"></div>
+
+
+</body>
+<script>
+    $(function(){
+        $.ajax({
+            type:"post",
+            url:"/user/getUser/1001",
+            dataType:"json",
+            success(data){
+                $("#userId").val(data.USER_ID);
+                $("#userName").val(data.USER_NAME);
+                $("#userRelName").val(data.USER_RELL_NAME);
+                $("#userSex").val(data.USER_SEX);
+                $("#userPhone").val(data.USER_PHON);
+                $("#userMail").val(data.USER_MAIL);
+            }
+        });
+    });
+
+
+</script>
+
+</html>
